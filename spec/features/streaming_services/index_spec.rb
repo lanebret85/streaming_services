@@ -7,7 +7,7 @@ RSpec.describe "Streaming Services Index", type: :feature do
   # Then I see the name of each parent record in the system
   describe "As a visitor" do
     describe "When I visit '/streaming_services'" do
-      it "can display the name of each parent record in the system" do
+      it "can display the name of each streaming service record in the system" do
         #arrange
         netflix = StreamingService.create!(name: "Netflix", subscribed: true, logged_in: true, rating: 42)
         hulu = StreamingService.create!(name: "Hulu", subscribed: true, logged_in: true, rating: 39)
