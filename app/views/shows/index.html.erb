@@ -1,0 +1,11 @@
+<h1>All Shows</h1>
+
+<% @shows.each do |show| %>
+  <h3><%= show.name %></h3><br/>
+  <p>Genre: <%= show.genre %></p><br/>
+  <p>Released: <%= @released_y_n %></p><br/>
+  <p>Episodes: <%= show.episodes %></p><br/>
+  <p>Seasons: <%= show.seasons %></p><br/>
+  <p>Episode Runtime: <%= show.episode_runtime %></p><br/>
+  <p>Streaming Service: <%= @streaming_service %></p><br/>
+<% end %>
