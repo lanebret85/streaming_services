@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_183423) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_200502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,7 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_183423) do
     t.string "name"
     t.string "genre"
     t.boolean "released"
-    t.boolean "watched"
     t.integer "episodes"
     t.integer "seasons"
     t.integer "episode_runtime"
