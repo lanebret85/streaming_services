@@ -2,10 +2,10 @@
 
 <% @shows.each do |show| %>
   <h3><%= show.name %></h3><br/>
-  <p>Genre: <%= show.genre %></p><br/>
-  <p>Released: <%= @released_y_n %></p><br/>
-  <p>Episodes: <%= show.episodes %></p><br/>
-  <p>Seasons: <%= show.seasons %></p><br/>
-  <p>Episode Runtime: <%= show.episode_runtime %></p><br/>
-  <p>Streaming Service: <%= @streaming_service %></p><br/>
+  <p>Genre: <%= show.genre %></p>
+  <p>Released: <%= show.released %></p>
+  <p><%= show.seasons %> Seasons</p>
+  <p><%= show.episodes %> Episodes</p>
+  <p><%= show.episode_runtime %> Minute Episodes</p>
+  <p>Streaming Service: <%= show.streaming_service_id %></p><br/>
 <% end %>
