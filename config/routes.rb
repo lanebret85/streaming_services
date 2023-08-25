@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "/streaming_services", to: "streaming_services#index"
   get "/streaming_services/:id", to: "streaming_services#show"
   get "/shows", to: "shows#index"
+  get "/shows/:id", to: "shows#show"
 end
