@@ -19,6 +19,7 @@ RSpec.describe "Streaming Services Show", type: :feature do
         #act
         visit "/streaming_services/#{netflix.id}"
         #assert
+        expect(page).to have_content("Shows Index")
         expect(page).to have_content(netflix.name)
         expect(page).to have_content("Subscribed: Yes")
         expect(page).to have_content("Logged in: Yes")
@@ -32,6 +33,12 @@ RSpec.describe "Streaming Services Show", type: :feature do
         expect(page).to_not have_content(disney_plus.subscribed)
         expect(page).to_not have_content(disney_plus.logged_in)
         expect(page).to_not have_content(disney_plus.rating)
+      end
+
+      it "links to the Shows Index page" do
+        click_on "Shows Index"
+
+        expect(current_path).to eq("/shows")
       end
     end
   end

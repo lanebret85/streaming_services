@@ -15,10 +15,17 @@ RSpec.describe "Streaming Services Index", type: :feature do
         #act
         visit "/streaming_services"
         #assert
+        expect(page).to have_content("Shows Index")
         expect(page).to have_content("All Streaming Services")
         expect(page).to have_content("#{netflix.name}, Created at: #{netflix.created_at}")
         expect(page).to have_content("#{hulu.name}, Created at: #{hulu.created_at}")
         expect(page).to have_content("#{disney_plus.name}, Created at: #{disney_plus.created_at}")
+      end
+
+      it "links to the Shows Index page" do
+        click_on "Shows Index"
+
+        expect(current_path).to eq("/shows")
       end
     end
   end
