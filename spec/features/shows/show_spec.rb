@@ -20,6 +20,7 @@ RSpec.describe "Shows Index", type: :feature do
         # act
         visit "/shows/#{the_witcher.id}"
         # assert
+        expect(page).to have_content("Shows Index")
         expect(page).to have_content(the_witcher.name)
         expect(page).to have_content("Genre: #{the_witcher.genre}")
         expect(page).to have_content("Released: Yes")
@@ -27,6 +28,12 @@ RSpec.describe "Shows Index", type: :feature do
         expect(page).to have_content("#{the_witcher.episodes} Episodes")
         expect(page).to have_content("#{the_witcher.episode_runtime} Minute Episodes")
         expect(page).to have_content("Available on: Netflix")
+      end
+
+      it "links to the Shows Index page" do
+        click_on "Shows Index"
+
+        expect(current_path).to eq("/shows")
       end
     end
   end
