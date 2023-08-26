@@ -5,4 +5,12 @@ class StreamingService < ApplicationRecord
   validates :subscribed, inclusion: [true, false]
   validates :logged_in, inclusion: [true, false]
   validates_presence_of :rating
+
+  def self.order_by_time_created
+    order(created_at: :desc)
+  end
+
+  def count_shows
+    self.shows.count
+  end
 end

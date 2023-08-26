@@ -1,5 +1,5 @@
 <h1>All Streaming Services</h1>
 
-<% @streaming_services.each do |service| %>
-  <h3><%= service.name %></h3><br/>
+<% @streaming_services.order_by_time_created.each do |service| %>
+  <h3><%= service.name %>, Created at: <%= service.created_at %></h3><br/>
 <% end %>
