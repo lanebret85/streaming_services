@@ -9,4 +9,8 @@ class StreamingService < ApplicationRecord
   def self.order_by_time_created
     order(created_at: :desc)
   end
+
+  def count_shows
+    self.shows.count
+  end
 end
