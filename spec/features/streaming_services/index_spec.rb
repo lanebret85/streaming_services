@@ -36,6 +36,17 @@ RSpec.describe "Streaming Services Index", type: :feature do
 
         expect(current_path).to eq("/shows")
       end
+
+      it "links to the Streaming Services Index page" do
+        # arrange
+        
+        # act
+        visit "/streaming_services"
+        # assert
+        click_on "Streaming Services Index"
+
+        expect(current_path).to eq("/streaming_services")
+      end
     end
   end
 end
