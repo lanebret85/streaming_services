@@ -1,5 +1,9 @@
+<a href="/shows">Shows Index</a>
+<a href="/streaming_services">Streaming Services Index</a>
+
 <p><%= @streaming_service.name %></p>
 <p>Subscribed: <%= @subscribed_y_n %></p>
 <p>Logged in: <%= @logged_in_y_n %></p>
 <p>Rating: <%= @streaming_service.rating %></p>
 <p>Library: <%= @streaming_service.count_shows %> Shows</p>
+<a href="/streaming_services/<%= @streaming_service.id %>/shows"><%= @streaming_service.name %>'s Shows Library</a>
