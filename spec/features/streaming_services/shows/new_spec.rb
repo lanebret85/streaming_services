@@ -18,7 +18,7 @@ RSpec.describe "the Show creation" do
       it "takes me to '/streaming_services/:id/shows/new' where I see a form to add a new show to the streaming service" do
         netflix = StreamingService.create!(name: "Netflix", subscribed: true, logged_in: true, rating: 42)
 
-        visit "/streaming_services/#{streaming_service.id}/shows/new"
+        visit "/streaming_services/#{netflix.id}/shows/new"
 
         fill_in("Name", with: "Great British Baking Show")
         fill_in("Genre", with: "Competition")
