@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   patch "/streaming_services/:id", to: "streaming_services#update"
   get "/streaming_services/:id/shows/new", to: "streaming_service_shows#new"
   post "/streaming_services/:id/shows", to: "streaming_service_shows#create"
+  get "/shows/:id/edit", to: "shows#edit"
+  patch "/shows/:id", to: "shows#update"
 end
