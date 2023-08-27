@@ -24,13 +24,22 @@ RSpec.describe Show, type: :model do
       @the_witcher = @netflix.shows.create!(name: "The Witcher", genre: "Fantasy", released: true, episodes: 24, seasons: 3, episode_runtime: 60)
       @is_it_cake = @netflix.shows.create!(name: "Is It Cake?", genre: "Competition", released: false, episodes: 16, seasons: 2, episode_runtime: 40)
       @new_girl = @hulu.shows.create!(name: "New Girl", genre: "Sitcom", released: true, episodes: 146, seasons: 7, episode_runtime: 30)
+      @crime_scene_kitchen = @hulu.shows.create!(name: "Crime Scene Kitchen", genre: "Competition", released: true, episodes: 18, seasons: 2, episode_runtime: 50)
     end
 
     describe "display_true" do
       it "only displays records where the released column is true" do
-        query = Show.where(released: true)
+        query = Show.display_true
 
-        expect(query).to eq([@the_witcher, @new_girl])
+        expect(query).to eq([@the_witcher, @new_girl, @crime_scene_kitchen])
+      end
+    end
+
+    describe "order_by_name" do
+      it "displays the records in alphabetical order by name" do
+        query = @hulu.shows.order_by_name
+
+        expect(query).to eq([@crime_scene_kitchen, @new_girl])
       end
     end
   end
