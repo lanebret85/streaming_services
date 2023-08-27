@@ -31,7 +31,7 @@ RSpec.describe "Shows Index", type: :feature do
         expect(page).to have_content("#{@the_witcher.seasons} Seasons")
         expect(page).to have_content("#{@the_witcher.episodes} Episodes")
         expect(page).to have_content("#{@the_witcher.episode_runtime} Minute Episodes")
-        expect(page).to have_content("Available on: Netflix")
+        expect(page).to have_content("Available on Streaming Service: #{@the_witcher.streaming_service_id}")
       end
 
       it "links to the Shows Index page" do
