@@ -25,6 +25,16 @@ class StreamingServicesController < ApplicationController
     redirect_to "/streaming_services"
   end
 
+  def edit
+    @streaming_service = StreamingService.find(params[:id])
+  end
+
+  def update
+    streaming_service = StreamingService.find(params[:id])
+    streaming_service.update(streaming_service_params)
+    redirect_to "/streaming_services/#{streaming_service.id}"
+  end
+
 private
   def streaming_service_params
     params.permit(:name, :subscribed, :logged_in, :rating)
