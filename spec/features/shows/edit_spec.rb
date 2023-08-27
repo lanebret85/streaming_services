@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "the Show Edit" do
-  desribe "As a visitor" do
+  describe "As a visitor" do
     describe "When I visit a Shows Show page" do
       it "links to the edit page to update the Show" do
         netflix = StreamingService.create!(name: "Netflix", subscribed: true, logged_in: true, rating: 42)
