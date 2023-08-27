@@ -8,3 +8,6 @@
 <p><%= @show.episodes %> Episodes</p>
 <p><%= @show.episode_runtime %> Minute Episodes</p>
 <p>Available on Streaming Service: <%= @show.streaming_service_id %></p>
+<p></p>
+
+<%= button_to "Update #{@show.name}", "/shows/#{@show.id}/edit", method: :get %>
