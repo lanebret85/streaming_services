@@ -36,6 +36,7 @@ RSpec.describe "Shows Index", type: :feature do
          expect(page).to have_content("#{@is_it_cake.seasons} Seasons")
          expect(page).to have_content("#{@is_it_cake.episodes} Episodes")
          expect(page).to have_content("#{@is_it_cake.episode_runtime} Minute Episodes")
+         expect(page).to have_content("Create Show")
       end
 
       it "links to the Shows Index page" do
