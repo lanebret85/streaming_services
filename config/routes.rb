@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "/streaming_services", to: "streaming_services#index"
+  get "/streaming_services/new", to: "streaming_services#new"
   get "/streaming_services/:id", to: "streaming_services#show"
   get "/shows", to: "shows#index"
   get "/shows/:id", to: "shows#show"
   get "/streaming_services/:id/shows", to: "streaming_service_shows#index"
+  post "/streaming_services", to: "streaming_services#create"
 end
