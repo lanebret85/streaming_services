@@ -9,4 +9,4 @@
 <a href="/streaming_services/<%= @streaming_service.id %>/shows"><%= @streaming_service.name %>'s Shows Library</a>
 <p></p>
 
-<%= button_to "Edit #{@streaming_service.name}", "/streaming_services/#{@streaming_service.id}/edit", method: :get %>
+<%= button_to "Update #{@streaming_service.name}", "/streaming_services/#{@streaming_service.id}/edit", method: :get %>
