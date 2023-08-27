@@ -30,7 +30,7 @@ RSpec.describe "Streaming Services Show", type: :feature do
         expect(page).to have_content("Logged in: Yes")
         expect(page).to have_content("Rating: #{@netflix.rating}")
         expect(page).to have_content("Library: #{@netflix.shows.count} Shows")
-        expect(page).to have_content("Update Streaming Service")
+        expect(page).to have_content("Edit #{@netflix.name}")
         expect(page).to_not have_content(@hulu.name)
         expect(page).to_not have_content(@hulu.subscribed)
         expect(page).to_not have_content(@hulu.logged_in)
