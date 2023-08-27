@@ -16,4 +16,27 @@ class StreamingServicesController < ApplicationController
       @logged_in_y_n = "No"
     end
   end
+
+  def new
+  end
+
+  def create
+    apple_tv_plus = StreamingService.create!(streaming_service_params)
+    redirect_to "/streaming_services"
+  end
+
+  def edit
+    @streaming_service = StreamingService.find(params[:id])
+  end
+
+  def update
+    streaming_service = StreamingService.find(params[:id])
+    streaming_service.update(streaming_service_params)
+    redirect_to "/streaming_services/#{streaming_service.id}"
+  end
+
+private
+  def streaming_service_params
+    params.permit(:name, :subscribed, :logged_in, :rating)
+  end
 end

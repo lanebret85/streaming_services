@@ -1,0 +1,15 @@
+<%= form_with url: "/shows/#{@show.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, value: "#{@show.name}" %>
+  <%= form.label :genre %>
+  <%= form.text_field :genre, value: "#{@show.genre}" %>
+  <%= form.label :released %>
+  <%= form.text_field :released, value: "#{@show.released}" %>
+  <%= form.label :episodes %>
+  <%= form.text_field :episodes, value: "#{@show.episodes}" %>
+  <%= form.label :seasons %>
+  <%= form.text_field :seasons, value: "#{@show.seasons}" %>
+  <%= form.label :episode_runtime %>
+  <%= form.text_field :episode_runtime, value: "#{@show.episode_runtime}" %>
+  <%= form.submit "Update Show" %>
+<% end %>

@@ -1,0 +1,16 @@
+<%= form_with url: "/streaming_services/#{@streaming_service.id}/shows", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :genre %>
+  <%= form.text_field :genre %>
+  <%= form.label :released %>
+  <%= form.text_field :released %>
+  <%= form.label :seasons %>
+  <%= form.text_field :seasons %>
+  <%= form.label :episodes %>
+  <%= form.text_field :episodes %>
+  <%= form.label :episode_runtime %>
+  <%= form.text_field :episode_runtime %>
+
+  <%= form.submit "Create Show" %>
+<% end %>
