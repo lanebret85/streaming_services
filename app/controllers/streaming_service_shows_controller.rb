@@ -11,7 +11,7 @@ class StreamingServiceShowsController < ApplicationController
   def create
     streaming_service = StreamingService.find(params[:id])
     great_british_baking_show = streaming_service.shows.create!(streaming_service_show_params)
-    redirect_to "/streaming_services/shows"
+    redirect_to "/streaming_services/#{streaming_service.id}/shows"
   end
 
 private
