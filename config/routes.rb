@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/shows/:id", to: "shows#show"
   get "/streaming_services/:id/shows", to: "streaming_service_shows#index"
   post "/streaming_services", to: "streaming_services#create"
+  get "/streaming_services/:id/edit", to: "streaming_services#edit"
+  patch "/streaming_services/:id", to: "streaming_services#update"
 end
