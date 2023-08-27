@@ -23,12 +23,13 @@ class ShowsController < ApplicationController
     else
       @released_y_n = "No"
     end
-    if @show.streaming_service_id % Show.count == 1
-      @streaming_service = "Netflix"
-    elsif @show.streaming_service_id % Show.count == 2
-      @streaming_service = "Hulu"
-    elsif @show.streaming_service_id % Show.count == 0
-      @streaming_service = "Disney Plus"
-    end
+    # binding.pry
+    # if @show.streaming_service_id == 1
+    #   @streaming_service = "Netflix"
+    # elsif @show.streaming_service_id == 2
+    #   @streaming_service = "Hulu"
+    # elsif @show.streaming_service_id == 0
+    #   @streaming_service = "Disney Plus"
+    # end
   end
 end
