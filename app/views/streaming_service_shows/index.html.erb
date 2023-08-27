@@ -9,4 +9,7 @@
   <p><%= show.seasons %> Seasons</p>
   <p><%= show.episodes %> Episodes</p>
   <p><%= show.episode_runtime %> Minute Episodes</p><br/>
+  <p></p>
 <% end %>
+  
+<%= button_to "Create Show", "/streaming_services/#{@streaming_service.id}/shows/new", method: :get %>
