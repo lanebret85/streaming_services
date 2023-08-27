@@ -31,7 +31,7 @@ RSpec.describe "the Show creation" do
         expect(current_path).to eq("/streaming_services/#{netflix.id}/shows")
         expect(page).to have_content("Great British Baking Show")
         expect(page).to have_content("Genre: Competition")
-        expect(page).to have_content("Released: Yes")
+        expect(page).to have_content("Released: true")
         expect(page).to have_content("10 Seasons")
         expect(page).to have_content("100 Episodes")
         expect(page).to have_content("60 Minute Episodes")
