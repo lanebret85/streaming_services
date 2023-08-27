@@ -18,7 +18,7 @@ RSpec.describe "the Streaming Service Creation" do
 
         fill_in("Name", with: "Apple TV Plus")
         fill_in("Subscribed", with: true)
-        fill_in("Logged In", with: true)
+        fill_in("Logged in", with: true)
         fill_in("Rating", with: 40)
         click_button("Create Streaming Service")
 
