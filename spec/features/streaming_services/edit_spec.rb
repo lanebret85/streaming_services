@@ -8,7 +8,7 @@ RSpec.describe "the Streaming Service Update" do
         
         visit "/streaming_services/#{netflix.id}"
         
-        click_button "Edit #{netflix.name}"
+        click_button "Update #{netflix.name}"
         
         expect(current_path).to eq("/streaming_services/#{netflix.id}/edit")
       end
@@ -22,7 +22,7 @@ RSpec.describe "the Streaming Service Update" do
 
         expect(page).to have_content("Rating: 42")
 
-        click_button "Edit Netflix"
+        click_button "Update Netflix"
 
         fill_in "Name", with: "Netflix"
         fill_in "Subscribed", with: true
