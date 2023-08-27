@@ -32,4 +32,19 @@ class ShowsController < ApplicationController
     #   @streaming_service = "Disney Plus"
     # end
   end
+
+  def edit
+    @show = Show.find(params[:id])
+  end
+
+  def update
+    show = Show.find(params[:id])
+    show.update(show_params)
+    redirect_to "/shows/#{show.id}"
+  end
+
+private
+  def show_params
+    params.permit(:name, :genre, :released, :episodes, :seasons, :episode_runtime)
+  end
 end
