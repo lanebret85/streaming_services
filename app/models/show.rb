@@ -11,4 +11,8 @@ class Show < ApplicationRecord
   def self.display_true
     where(released: true)
   end
+
+  def self.order_by_name
+    order(:name)
+  end
 end
