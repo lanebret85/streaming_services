@@ -68,7 +68,7 @@ RSpec.describe "Shows Index", type: :feature do
 
         expect(current_path).to eq("/streaming_services/#{@netflix.id}/shows")
 
-        expect(@is_it_cake).to appear_before(@the_witcher)
+        expect(@is_it_cake.name).to appear_before(@the_witcher.name)
       end
 
       it "has links to update Netflix's shows" do
