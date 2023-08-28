@@ -4,7 +4,7 @@
 <h1>All Streaming Services</h1>
 
 <% @streaming_services.order_by_time_created.each do |service| %>
-  <h3><%= service.name %>, Created at: <%= service.created_at %></h3><br/>
-<% end %>
+  <h3><%= service.name %>, Created at: <%= service.created_at %> <%= link_to "Update #{service.name}", "/streaming_services/#{service.id}/edit" %></h3><br/>
+<% end %><br/><br/>
 
 <%= link_to "New Streaming Service", "/streaming_services/new" %>
