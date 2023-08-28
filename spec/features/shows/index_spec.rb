@@ -70,6 +70,17 @@ RSpec.describe "Shows Index", type: :feature do
 
         expect(current_path).to eq("/streaming_services")
       end
+
+      it "has links to update each Show" do
+        visit "/shows"
+
+        expect(page).to have_content("Update #{@the_witcher.name}")
+        expect(page).to have_content("Update #{@new_girl.name}")
+
+        click_on "Update #{@the_witcher.name}"
+
+        expect(current_path).to eq("/shows/#{@the_witcher.id}/edit")
+      end
     end
   end
 end

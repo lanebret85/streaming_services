@@ -3,7 +3,7 @@
 
 <h2><%= @streaming_service.name %>'s Shows</h2><br/>
 <% @shows.each do |show| %>
-  <h3><%= show.name %></h3>
+  <h3><%= show.name %> <%= link_to "Update #{show.name}", "/shows/#{show.id}/edit" %></h3>
   <p>Genre: <%= show.genre %></p>
   <p>Released: <%= show.released %></p>
   <p><%= show.seasons %> Seasons</p>

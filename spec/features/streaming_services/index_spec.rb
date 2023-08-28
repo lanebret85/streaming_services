@@ -48,6 +48,18 @@ RSpec.describe "Streaming Services Index", type: :feature do
 
         expect(current_path).to eq("/streaming_services")
       end
+
+      it "has links to update each streaming service" do
+        visit "/streaming_services"
+
+        expect(page).to have_content("Update #{@netflix.name}")
+        expect(page).to have_content("Update #{@hulu.name}")
+        expect(page).to have_content("Update #{@disney_plus.name}")
+
+        click_on "Update #{@netflix.name}"
+
+        expect(current_path).to eq("/streaming_services/#{@netflix.id}/edit")
+      end
     end
   end
 end
