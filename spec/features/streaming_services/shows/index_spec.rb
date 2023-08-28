@@ -60,6 +60,16 @@ RSpec.describe "Shows Index", type: :feature do
 
         expect(current_path).to eq("/streaming_services")
       end
+
+      it "links to display shows alphabetically by name" do
+        visit "/streaming_services/#{@netflix.id}/shows"
+
+        click_on "Sort #{@netflix.name}'s Shows Alphabetically"
+
+        expect(current_path).to eq("/streaming_services/#{@netflix.id}/shows")
+
+        expect(@is_it_cake).to appear_before(@the_witcher)
+      end
     end
   end
 end

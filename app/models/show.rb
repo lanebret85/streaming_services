@@ -7,4 +7,12 @@ class Show < ApplicationRecord
   validates_presence_of :episodes
   validates_presence_of :seasons
   validates_presence_of :episode_runtime
+
+  def self.display_true
+    where(released: true)
+  end
+
+  def self.order_by_name
+    order(:name)
+  end
 end

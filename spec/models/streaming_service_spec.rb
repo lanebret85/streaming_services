@@ -27,7 +27,7 @@ RSpec.describe StreamingService, type: :model do
 
     describe "#order_by_time_created" do
     it "can display streaming services in order of most recently created" do
-        query = StreamingService.order(created_at: :desc)
+        query = StreamingService.order_by_time_created
 
         expect(query).to eq([@disney_plus, @hulu, @netflix])
       end
@@ -35,7 +35,7 @@ RSpec.describe StreamingService, type: :model do
 
     describe "#count_shows" do
       it "can display the number of shows associated with each streaming service" do
-        query = StreamingService.first.shows.count
+        query = StreamingService.first.count_shows
 
         expect(query).to eq(2)
       end
