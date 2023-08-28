@@ -2,6 +2,9 @@
 <a href="/streaming_services">Streaming Services Index</a>
 
 <h2><%= @streaming_service.name %>'s Shows</h2><br/>
+
+<%= link_to "Sort #{@streaming_service.name}'s Shows Alphabetically", "/streaming_services/#{@streaming_service.id}/shows?sort=alpha"%><br/><br/>
+
 <% @shows.each do |show| %>
   <h3><%= show.name %> <%= link_to "Update #{show.name}", "/shows/#{show.id}/edit" %></h3>
   <p>Genre: <%= show.genre %></p>
