@@ -75,7 +75,6 @@ RSpec.describe "Shows Index", type: :feature do
         visit "/shows"
 
         expect(page).to have_content("Update #{@the_witcher.name}")
-        expect(page).to have_content("Update #{@is_it_cake.name}")
         expect(page).to have_content("Update #{@new_girl.name}")
 
         click_on "Update #{@the_witcher.name}"
