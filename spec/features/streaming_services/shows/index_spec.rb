@@ -68,8 +68,7 @@ RSpec.describe "Shows Index", type: :feature do
 
         expect(current_path).to eq("/streaming_services/#{@netflix.id}/shows")
 
-        #will need to use orderly gem to test order here"
-        
+        expect(@is_it_cake).to appear_before(@the_witcher)
       end
     end
   end
