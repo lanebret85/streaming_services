@@ -35,6 +35,13 @@ class StreamingServicesController < ApplicationController
     redirect_to "/streaming_services/#{streaming_service.id}"
   end
 
+  def destroy
+    streaming_service = StreamingService.find(params[:id])
+    streaming_service.destroy
+
+    redirect_to "/streaming_services"
+  end
+
 private
   def streaming_service_params
     params.permit(:name, :subscribed, :logged_in, :rating)
