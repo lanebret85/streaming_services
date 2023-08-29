@@ -73,6 +73,14 @@ RSpec.describe "Streaming Services Index", type: :feature do
         expect(current_path).to eq("/streaming_services")
         expect(page).to_not have_content("#{@disney_plus.name}")
       end
+
+      it "displays the name of each streaming service with a link to the show page for that streaming service" do
+        visit "/streaming_services"
+
+        click_on "#{@netflix.name}"
+
+        expect(current_path).to eq("/streaming_services/#{@netflix.id}")
+      end
     end
   end
 end
