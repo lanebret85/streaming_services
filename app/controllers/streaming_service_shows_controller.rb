@@ -1,15 +1,12 @@
 class StreamingServiceShowsController < ApplicationController
   def index
     @streaming_service = StreamingService.find(params[:id])
+    @shows = @streaming_service.shows
+    @seasons = params[:seasons]
     if params[:sort] == "alpha"
       @shows = @streaming_service.shows.order_by_name
-    else
-      @shows = @streaming_service.shows
-    end
-    @seasons = params[:seasons]
-    if @seasons != nil
+    elsif @seasons != nil
       @shows = @shows.display_seasons_greater_than(@seasons)
-      redirect_to "/streaming_services/#{@streaming_service.id}/shows"
     end
   end
 
