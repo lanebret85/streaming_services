@@ -1,15 +1,16 @@
 <a href="/shows">Shows Index</a>
 <a href="/streaming_services">Streaming Services Index</a>
 
-<h1>All Shows</h1><br/>
+<h1>All Shows</h1>
 
 <% @shows.display_true.each do |show| %>
-  <h3><%= show.name %> <%= link_to "Update #{show.name}", "/shows/#{show.id}/edit" %></h3>
+  <h2><%= show.name %></h2>
   <p>Genre: <%= show.genre %></p>
   <p>Released: <%= show.released %></p>
   <p><%= show.seasons %> Seasons</p>
   <p><%= show.episodes %> Episodes</p>
   <p><%= show.episode_runtime %> Minute Episodes</p>
-  <p>Streaming Service: <%= show.streaming_service_id %></p><br/>
+  <p>Streaming Service: <%= show.streaming_service_id %></p>
+  <%= button_to "Update #{show.name}", "/shows/#{show.id}/edit", method: :get %><br/>
   <%= button_to "Delete #{show.name}", "/shows/#{show.id}", method: :delete %><br/>
 <% end %>
