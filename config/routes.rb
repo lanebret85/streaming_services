@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   delete "/streaming_services/:id", to: "streaming_services#destroy"
   delete "/shows/:id", to: "shows#destroy"
   delete "/streaming_services", to: "streaming_services#destroy"
+  delete "/shows", to: "shows#destroy"
 end
