@@ -14,7 +14,7 @@ RSpec.describe "Shows Index", type: :feature do
     describe "When I visit '/shows/:id'" do
       before :each do
         @the_witcher = @netflix.shows.create!(name: "The Witcher", genre: "Fantasy", released: true, episodes: 24, seasons: 3, episode_runtime: 60)
-        @is_it_cake = @netflix.shows.create!(name: "Is it Cake?", genre: "Competition", released: true, episodes: 20, seasons: 2, episode_runtime: 60)
+        @is_it_cake = @netflix.shows.create!(name: "Is it Cake?", genre: "Competition", released: false, episodes: 20, seasons: 2, episode_runtime: 60)
         @new_girl = @hulu.shows.create!(name: "New Girl", genre: "Sitcom", released: true, episodes: 146, seasons: 7, episode_runtime: 30)
       end
 
@@ -33,6 +33,10 @@ RSpec.describe "Shows Index", type: :feature do
         expect(page).to have_content("#{@the_witcher.episode_runtime} Minute Episodes")
         expect(page).to have_content("Available on Streaming Service: #{@the_witcher.streaming_service_id}")
         expect(page).to have_content("Update #{@the_witcher.name}")
+
+        visit "/shows/#{@is_it_cake.id}"
+        
+        expect(page).to have_content("Released: No")
       end
 
       it "links to the Shows Index page" do
@@ -40,6 +44,8 @@ RSpec.describe "Shows Index", type: :feature do
         
         # act
         visit "/shows/#{@the_witcher.id}"
+
+
         # assert
         # save_and_open_page
         click_link "Shows Index"

@@ -9,7 +9,7 @@ RSpec.describe "Streaming Services Show", type: :feature do
     describe "When I visit '/streaming_services/:id'" do
       before :each do
         @netflix = StreamingService.create!(name: "Netflix", subscribed: true, logged_in: true, rating: 42)
-        @hulu = StreamingService.create!(name: "Hulu", subscribed: true, logged_in: true, rating: 39)
+        @hulu = StreamingService.create!(name: "Hulu", subscribed: false, logged_in: true, rating: 39)
         @disney_plus = StreamingService.create!(name: "Disney Plus", subscribed: true, logged_in: false, rating: 35)
 
         @the_witcher = @netflix.shows.create!(name: "The Witcher", genre: "Fantasy", released: true, episodes: 24, seasons: 3, episode_runtime: 60)
@@ -39,6 +39,10 @@ RSpec.describe "Streaming Services Show", type: :feature do
         expect(page).to_not have_content(@disney_plus.subscribed)
         expect(page).to_not have_content(@disney_plus.logged_in)
         expect(page).to_not have_content(@disney_plus.rating)
+
+        visit "/streaming_services/#{@hulu.id}"
+
+        expect(page).to have_content("Subscribed: No")
       end
 
       it "links to the Shows Index page" do
