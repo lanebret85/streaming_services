@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get "/shows/:id/edit", to: "shows#edit"
   patch "/shows/:id", to: "shows#update"
   delete "/streaming_services/:id", to: "streaming_services#destroy"
+  delete "/shows/:id", to: "shows#destroy"
 end
