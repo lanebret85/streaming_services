@@ -1,9 +1,9 @@
 <a href="/shows">Shows Index</a>
 <a href="/streaming_services">Streaming Services Index</a>
 
-<h2><%= @streaming_service.name %>'s Shows</h2><br/>
+<h1><%= @streaming_service.name %>'s Shows</h1><br/>
 
-<%= link_to "Sort #{@streaming_service.name}'s Shows Alphabetically", "/streaming_services/#{@streaming_service.id}/shows?sort=alpha" %><br/><br/>
+<%= link_to "Sort #{@streaming_service.name}'s Shows Alphabetically", "/streaming_services/#{@streaming_service.id}/shows?sort=alpha" %><br/><br/><br/>
 
 <%= form_with url: "/streaming_services/#{@streaming_service.id}/shows?seasons=#{@seasons}", method: :get, data: { turbo: false } do |form| %>
   <%= form.submit "Only return Shows with more seasons than"%>
@@ -11,13 +11,14 @@
 <% end %><br/>
 
 <% @shows.each do |show| %>
-  <h3><%= show.name %> <%= link_to "Update #{show.name}", "/shows/#{show.id}/edit" %></h3>
+  <h2><%= show.name %></h2>
   <p>Genre: <%= show.genre %></p>
   <p>Released: <%= show.released %></p>
   <p><%= show.seasons %> Seasons</p>
   <p><%= show.episodes %> Episodes</p>
-  <p><%= show.episode_runtime %> Minute Episodes</p><br/>
-  <p></p>
+  <p><%= show.episode_runtime %> Minute Episodes</p>
+  <%= button_to "Update #{show.name}", "/shows/#{show.id}/edit", method: :get %>
+  <br/>
 <% end %>
   
 <%= button_to "Create Show", "/streaming_services/#{@streaming_service.id}/shows/new", method: :get %>
