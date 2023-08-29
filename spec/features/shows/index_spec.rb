@@ -81,6 +81,19 @@ RSpec.describe "Shows Index", type: :feature do
 
         expect(current_path).to eq("/shows/#{@the_witcher.id}/edit")
       end
+
+      it "has links to delete each Show" do
+        visit "/shows"
+
+        expect(page).to have_content("Delete #{@the_witcher.name}")
+        expect(page).to have_content("Delete #{@new_girl.name}")
+
+        click_on "Delete #{@new_girl.name}"
+
+        expect(current_path).to eq("/shows")
+        expect(page).to have_content("#{@the_witcher.name}")
+        expect(page).to_not have_content("#{@new_girl.name}")
+      end
     end
   end
 end
