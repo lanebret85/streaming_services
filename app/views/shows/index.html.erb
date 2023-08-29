@@ -11,4 +11,5 @@
   <p><%= show.episodes %> Episodes</p>
   <p><%= show.episode_runtime %> Minute Episodes</p>
   <p>Streaming Service: <%= show.streaming_service_id %></p><br/>
+  <%= button_to "Delete #{show.name}", "/shows/#{show.id}", method: :delete %><br/>
 <% end %>
