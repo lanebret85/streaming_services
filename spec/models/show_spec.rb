@@ -42,5 +42,13 @@ RSpec.describe Show, type: :model do
         expect(query).to eq([@crime_scene_kitchen, @new_girl])
       end
     end
+
+    describe "display_seasons" do
+      it "displays the Shows with seasons greater than the input number of seasons" do
+        query = @netflix.shows.display_seasons_greater_than(2)
+
+        expect(query).to eq([@the_witcher])
+      end
+    end
   end
 end

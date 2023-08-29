@@ -15,4 +15,8 @@ class Show < ApplicationRecord
   def self.order_by_name
     order(:name)
   end
+
+  def self.display_seasons_greater_than(number)
+    where("seasons > #{number}")
+  end
 end
