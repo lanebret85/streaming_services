@@ -4,7 +4,7 @@
 <h1>All Shows</h1>
 
 <% @shows.display_true.each do |show| %>
-  <h2><%= show.name %></h2>
+  <h2><%= link_to "#{show.name}", "/shows/#{show.id}" %></h2>
   <p>Genre: <%= show.genre %></p>
   <p>Released: <%= show.released %></p>
   <p><%= show.seasons %> Seasons</p>
