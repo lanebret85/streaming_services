@@ -1,11 +1,11 @@
 <%= form_with url: "/streaming_services/#{@streaming_service.id}", method: :patch, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name, value: "#{@streaming_service.name}" %>
+  <%= form.text_field :name, value: "#{@streaming_service.name}" %><br/><br/>
   <%= form.label :subscribed %>
-  <%= form.text_field :subscribed, value: "#{@streaming_service.subscribed}" %>
+  <%= form.text_field :subscribed, value: "#{@streaming_service.subscribed}" %><br/><br/>
   <%= form.label :logged_in %>
-  <%= form.text_field :logged_in, value: "#{@streaming_service.logged_in}" %>
+  <%= form.text_field :logged_in, value: "#{@streaming_service.logged_in}" %><br/><br/>
   <%= form.label :rating %>
-  <%= form.text_field :rating, value: "#{@streaming_service.rating}" %>
+  <%= form.text_field :rating, value: "#{@streaming_service.rating}" %><br/><br/>
   <%= form.submit "Update Streaming Service" %>
 <% end %>
