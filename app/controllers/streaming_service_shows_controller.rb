@@ -6,6 +6,11 @@ class StreamingServiceShowsController < ApplicationController
     else
       @shows = @streaming_service.shows
     end
+    @seasons = params[:seasons]
+    if @seasons != nil
+      @shows = @shows.display_seasons_greater_than(@seasons)
+      redirect_to "/streaming_services/#{@streaming_service.id}/shows"
+    end
   end
 
   def new
