@@ -21,9 +21,12 @@ RSpec.describe "Streaming Services Index", type: :feature do
         #assert
         expect(page).to have_content("Shows Index")
         expect(page).to have_content("All Streaming Services")
-        expect(page).to have_content("#{@netflix.name}, Created at: #{@netflix.created_at}")
-        expect(page).to have_content("#{@hulu.name}, Created at: #{@hulu.created_at}")
-        expect(page).to have_content("#{@disney_plus.name}, Created at: #{@disney_plus.created_at}")
+        expect(page).to have_content("#{@netflix.name}")
+        expect(page).to have_content("Created at: #{@netflix.created_at}")
+        expect(page).to have_content("#{@hulu.name}")
+        expect(page).to have_content("Created at: #{@hulu.created_at}")
+        expect(page).to have_content("#{@disney_plus.name}")
+        expect(page).to have_content("Created at: #{@disney_plus.created_at}")
         expect(page).to have_content("New Streaming Service")
       end
 
@@ -62,16 +65,24 @@ RSpec.describe "Streaming Services Index", type: :feature do
       end
 
       it "has links to delete each streaming service" do
-        visit "/streaming_services" do
-          expect(page).to have_content("Delete #{@netflix.name}")
-          expect(page).to have_content("Delete #{@hulu.name}")
-          expect(page).to have_content("Delete #{@disney_plus.name}")
+        visit "/streaming_services"
+        
+        expect(page).to have_content("Delete #{@netflix.name}")
+        expect(page).to have_content("Delete #{@hulu.name}")
+        expect(page).to have_content("Delete #{@disney_plus.name}")
 
-          click_on "Delete #{@disney_plus.name}"
+        click_on "Delete #{@disney_plus.name}"
 
-          expect(current_path).to eq("/streaming_services")
-          expect(page).to_not have_content("#{@hulu.name}")
-        end
+        expect(current_path).to eq("/streaming_services")
+        expect(page).to_not have_content("#{@disney_plus.name}")
+      end
+
+      it "displays the name of each streaming service with a link to the show page for that streaming service" do
+        visit "/streaming_services"
+
+        click_on "#{@netflix.name}"
+
+        expect(current_path).to eq("/streaming_services/#{@netflix.id}")
       end
     end
   end

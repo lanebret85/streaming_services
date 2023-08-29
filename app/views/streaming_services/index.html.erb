@@ -3,9 +3,11 @@
 
 <h1>All Streaming Services</h1>
 
-<% @streaming_services.order_by_time_created.each do |service| %>
-  <h3><%= service.name %>, Created at: <%= service.created_at %> <%= link_to "Update #{service.name}", "/streaming_services/#{service.id}/edit" %>
-  <%= button_to "Delete #{service.name}", "/streaming_services/#{service.id}", method: :delete %></h3><br/>
-<% end %><br/><br/>
+<% @streaming_services.each do |service| %>
+  <h2><%= link_to "#{service.name}", "/streaming_services/#{service.id}" %></h2>
+  <p>Created at: <%= service.created_at %></p>
+  <%= button_to "Update #{service.name}", "/streaming_services/#{service.id}/edit", method: :get %><br/>
+  <%= button_to "Delete #{service.name}", "/streaming_services/#{service.id}", method: :delete %>
+<% end %><br/><br/><br/>
 
-<%= link_to "New Streaming Service", "/streaming_services/new" %>
+<%= button_to "New Streaming Service", "/streaming_services/new", method: :get %>

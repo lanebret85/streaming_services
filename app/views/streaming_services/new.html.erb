@@ -1,12 +1,12 @@
 <%= form_with url: "/streaming_services", method: :post, local: true do |form| %>
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br/><br/>
   <%= form.label :subscribed %>
-  <%= form.text_field :subscribed %>
+  <%= form.text_field :subscribed %><br/><br/>
   <%= form.label :logged_in %>
-  <%= form.text_field :logged_in %>
+  <%= form.text_field :logged_in %><br/><br/>
   <%= form.label :rating %>
-  <%= form.text_field :rating %>
+  <%= form.text_field :rating %><br/><br/>
 
   <%= form.submit "Create Streaming Service" %>
 <% end %>

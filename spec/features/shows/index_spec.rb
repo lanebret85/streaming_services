@@ -94,6 +94,14 @@ RSpec.describe "Shows Index", type: :feature do
         expect(page).to have_content("#{@the_witcher.name}")
         expect(page).to_not have_content("#{@new_girl.name}")
       end
+
+      it "links each show to its show page" do
+        visit "/shows"
+
+        click_on "#{@the_witcher.name}"
+
+        expect(current_path).to eq("/shows/#{@the_witcher.id}")
+      end
     end
   end
 end

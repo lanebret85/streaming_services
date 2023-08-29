@@ -6,7 +6,7 @@ RSpec.describe "the Streaming Service Creation" do
       it "links to the new page from the Streaming Services Index page" do
         visit "/streaming_services"
         
-        click_link("New Streaming Service")
+        click_on "New Streaming Service"
 
         expect(current_path).to eq("/streaming_services/new")
       end
