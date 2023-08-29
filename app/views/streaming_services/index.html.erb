@@ -4,7 +4,8 @@
 <h1>All Streaming Services</h1>
 
 <% @streaming_services.each do |service| %>
-  <h2><%= link_to "#{service.name}", "/streaming_services/#{service.id}" %>, Created at: <%= service.created_at %></h2>
+  <h2><%= link_to "#{service.name}", "/streaming_services/#{service.id}" %></h2>
+  <p>Created at: <%= service.created_at %></p>
   <%= button_to "Update #{service.name}", "/streaming_services/#{service.id}/edit", method: :get %><br/>
   <%= button_to "Delete #{service.name}", "/streaming_services/#{service.id}", method: :delete %>
 <% end %><br/><br/><br/>
