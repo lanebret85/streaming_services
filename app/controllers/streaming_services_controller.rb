@@ -1,10 +1,11 @@
 class StreamingServicesController < ApplicationController
   def index
-    @streaming_services = StreamingService.all
+    @streaming_services = StreamingService.order_by_time_created
   end
 
   def show
     @streaming_service = StreamingService.find(params[:id])
+    @show_count = @streaming_service.count_shows
     if StreamingService.find(params[:id]).subscribed
       @subscribed_y_n = "Yes"
     else
