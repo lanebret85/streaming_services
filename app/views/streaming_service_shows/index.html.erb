@@ -5,7 +5,7 @@
 
 <%= link_to "Sort #{@streaming_service.name}'s Shows Alphabetically", "/streaming_services/#{@streaming_service.id}/shows?sort=alpha"%><br/><br/>
 
-<%= form_with url: "/streaming_services/#{@streaming_service.id}/shows", method: :get, data: { turbo: false } do |form| %>
+<%= form_with url: "/streaming_services/#{@streaming_service.id}/shows?seasons=#{@seasons}", method: :get, data: { turbo: false } do |form| %>
   <%= form.submit "Only return Shows with more seasons than"%>
   <%= form.number_field :seasons, step: 1, min: 0 %>
 <% end %><br/>
