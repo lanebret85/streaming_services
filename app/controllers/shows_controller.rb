@@ -43,6 +43,13 @@ class ShowsController < ApplicationController
     redirect_to "/shows/#{show.id}"
   end
 
+  def destroy
+    show = Show.find(params[:id])
+    show.destroy
+
+    redirect_to "/shows"
+  end
+
 private
   def show_params
     params.permit(:name, :genre, :released, :episodes, :seasons, :episode_runtime)

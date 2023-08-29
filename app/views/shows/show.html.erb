@@ -10,4 +10,5 @@
 <p>Available on Streaming Service: <%= @show.streaming_service_id %></p>
 <p></p>
 
-<%= button_to "Update #{@show.name}", "/shows/#{@show.id}/edit", method: :get %>
+<%= button_to "Update #{@show.name}", "/shows/#{@show.id}/edit", method: :get %><br/>
+<%= button_to "Delete #{@show.name}", "/shows/#{@show.id}", method: :delete %>

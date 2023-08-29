@@ -73,6 +73,15 @@ RSpec.describe "Streaming Services Show", type: :feature do
 
         expect(current_path).to eq("/streaming_services/#{@netflix.id}/shows")
       end
+
+      it "links to delete the Streaming Service and redirect to the Streaming Service Index page" do
+        visit "/streaming_services/#{@disney_plus.id}"
+
+        click_on "Delete #{@disney_plus.name}"
+
+        expect(current_path).to eq("/streaming_services")
+        expect(page).to_not have_content("#{@disney_plus.name}")
+      end
     end
   end
 end
