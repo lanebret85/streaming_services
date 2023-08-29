@@ -57,6 +57,15 @@ RSpec.describe "Shows Index", type: :feature do
 
         expect(current_path).to eq("/streaming_services")
       end
+
+      it "links to delete the Show and redirect to the Shows Index page" do
+        visit "/shows/#{@is_it_cake.id}"
+
+        click_on "Delete #{@is_it_cake.name}"
+
+        expect(current_path).to eq("/shows")
+        expect(page).to_not have_content("#{@is_it_cake.name}")
+      end
     end
   end
 end
